@@ -15,7 +15,7 @@ const TreatmentsServices = {
     return knex.from("treatments").where({ id }).delete();
   },
   updateTreatments(knex, id, updatedTreatment) {
-    return knex.from("treatments").where({ id }).update(updatedTreatments);
+    return knex.from("treatments").where({ id }).update(updatedTreatment);
   },
 };
 
