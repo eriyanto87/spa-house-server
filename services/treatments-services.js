@@ -2,7 +2,7 @@ const TreatmentsServices = {
   getAllTreatments(knex) {
     return knex.select("*").from("treatments");
   },
-  insertNotes(knex, newTreatment) {
+  insertTreatments(knex, newTreatment) {
     return knex
       .insert(newTreatment)
       .into("treatments")
