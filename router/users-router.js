@@ -6,11 +6,11 @@ const bodyParser = express.json();
 
 usersRouter
   .route("/")
-  .get((req, res, next) => {
-    UsersServices.getAllUsers(req.app.get("db")).then((user) => {
-      res.json(user);
-    });
-  })
+  //   .get((req, res, next) => {
+  //     UsersServices.getAllUsers(req.app.get("db")).then((user) => {
+  //       res.json(user);
+  //     });
+  //   })
   .post(bodyParser, (req, res, next) => {
     const {
       user_name,
