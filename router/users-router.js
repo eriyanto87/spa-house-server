@@ -12,8 +12,24 @@ usersRouter
     });
   })
   .post(bodyParser, (req, res, next) => {
-    const { user_name, user_number, user_email } = req.body;
-    const newUser = { user_name, user_number, user_email };
+    const {
+      user_name,
+      user_number,
+      user_email,
+      user_street,
+      user_city,
+      user_state,
+      user_zip,
+    } = req.body;
+    const newUser = {
+      user_name,
+      user_number,
+      user_email,
+      user_street,
+      user_city,
+      user_state,
+      user_zip,
+    };
     for (const field of ["user_name", "user_number"]) {
       if (!req.body[field]) {
         return res.status(400).json({

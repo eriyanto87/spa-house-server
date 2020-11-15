@@ -1,15 +1,15 @@
 const express = require("express");
-const CartService = require("../services/cart-services");
+const ConfirmationService = require("../services/confirmation-services");
 
-const cartRouter = express.Router();
+const confirmationRouter = express.Router();
 const bodyParser = express.json();
 
-cartRouter
+confirmationRouter
   .route("/")
   .get((req, res, next) => {
-    CartService.getAll(req.app.get("db"))
-      .then((cart) => {
-        res.json(cart);
+    ConfirmationService.getAll(req.app.get("db"))
+      .then((c) => {
+        res.json(c);
       })
       .catch(next);
   })
@@ -21,7 +21,7 @@ cartRouter
       order_date,
       appointment_date,
     } = req.body;
-    const newCart = {
+    const newConfirmation = {
       user_id,
       treatment_id,
       comment,
@@ -37,11 +37,11 @@ cartRouter
         });
       }
     }
-    CartService.insertCart(req.app.get("db"), newCart)
-      .then((cart) => {
-        res.status(201).location(`/${cart.id}`).json(cart);
+    ConfirmationService.insertConfirmation(req.app.get("db"), newConfirmation)
+      .then((c) => {
+        res.status(201).location(`/${c.id}`).json(c);
       })
       .catch(next);
   });
 
-module.exports = cartRouter;
+module.exports = confirmationRouter;

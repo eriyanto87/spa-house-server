@@ -6,7 +6,7 @@ const helmet = require("helmet");
 const { NODE_ENV } = require("./config");
 const treatmentsRouter = require("../router/treatments-router");
 const usersRouter = require("../router/users-router");
-const cartRouter = require("../router/cart-router");
+const confirmationRouter = require("../router/confirmation-router");
 
 const app = express();
 const morganOption = NODE_ENV === "production" ? "tiny" : "common";
@@ -17,7 +17,7 @@ app.use(cors());
 
 app.use("/api/treatments", treatmentsRouter);
 app.use("/api/users", usersRouter);
-app.use("/api/cart", cartRouter);
+app.use("/api/confirmation", confirmationRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
