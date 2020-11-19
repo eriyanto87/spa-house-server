@@ -22,6 +22,7 @@ describe("Users Endpoints", () => {
   describe("POST /api/users", () => {
     it("adds a new user", () => {
       const newUser = {
+        id: 1,
         user_name: "Nes",
         user_number: "123",
         user_email: "test@yahoo.com",

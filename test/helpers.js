@@ -32,7 +32,7 @@ function makeTreatmentsArray() {
 function makeUsersArray() {
   return [
     {
-      user_id: 1,
+      id: 1,
       user_name: "Nes",
       user_number: "123",
       user_email: "test@yahoo.com",

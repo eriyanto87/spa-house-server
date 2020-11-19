@@ -20,11 +20,10 @@ describe("Treatments Endpoint", () => {
   afterEach("cleanup", () => helpers.cleanTables(db));
 
   describe("GET /api/confirmation", () => {
+    it(`responds with a 200 and an empty list`, () => {
+      return supertest(app).get("/api/confirmation").expect(200, []);
+    });
     context("Given no confirmation", () => {
-      it(`responds with a 200 and an empty list`, () => {
-        return supertest(app).get("/api/confirmation").expect(200, []);
-      });
-      // context("Given there are confirmations in the database", () => {
       //   const test = helpers.makeConfirmation();
 
       //   beforeEach("insert confirmations", () => {
@@ -35,6 +34,17 @@ describe("Treatments Endpoint", () => {
       //     return supertest(app).get("/api/confirmation").expect(200, test);
       //   });
       // });
+      const testUser = helpers.makeUsersArray();
+      const testTreatment = helpers.makeTreatmentsArray();
+
+      beforeEach("insert confirmations", () => {
+        return db.into("users").insert(testUser);
+      });
+
+      beforeEach("insert treatment", () => {
+        return db.into("treatments").insert(testTreatment);
+      });
+
       it("adds a new confirmation", () => {
         const newConfirmation = {
           user_id: 1,
@@ -50,7 +60,6 @@ describe("Treatments Endpoint", () => {
             expect(res.body.user_id).to.eql(newConfirmation.user_id);
             expect(res.body.treatment_id).to.eql(newConfirmation.treatment_id);
             expect(res.body.comment).to.eql(newConfirmation.comment);
-            expect(res.body.order_date).to.eql(newConfirmation.order_date);
             expect(res.body.appointment_date).to.eql(
               newConfirmation.appointment_date
             );
