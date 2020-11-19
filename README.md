@@ -1,4 +1,4 @@
-# Express Boilerplate!
+# Spa House
 
 This is a boilerplate project used for starting new projects!
 
