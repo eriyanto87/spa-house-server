@@ -24,16 +24,6 @@ describe("Treatments Endpoint", () => {
       return supertest(app).get("/api/confirmation").expect(200, []);
     });
     context("Given no confirmation", () => {
-      //   const test = helpers.makeConfirmation();
-
-      //   beforeEach("insert confirmations", () => {
-      //     return db.into("confirmation").insert(test);
-      //   });
-
-      //   it("gets the confirmation", () => {
-      //     return supertest(app).get("/api/confirmation").expect(200, test);
-      //   });
-      // });
       const testUser = helpers.makeUsersArray();
       const testTreatment = helpers.makeTreatmentsArray();
 

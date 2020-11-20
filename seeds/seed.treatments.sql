@@ -2,8 +2,8 @@ BEGIN;
 
 INSERT INTO treatments (name, length, price, display_name)
 VALUES
-('massage-60', 60, 99, '1 Hour Massage'), 
-('massage-90', 90, 139, '1.5 Hour Massage'), 
+('massage-60', 60, 99, 'Massage 1 hour'), 
+('massage-90', 90, 139, 'Massage 1.5 hour'), 
 ('fullset', 120, 99, 'Eyelash Extensions Full Set'), 
 ('fill', 85, 79, 'Eyelash Extensions Refill'),
 ('manicure', 45, 39, 'Manicure'), 
