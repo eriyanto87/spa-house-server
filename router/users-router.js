@@ -14,6 +14,7 @@ usersRouter.route("/").post(bodyParser, (req, res, next) => {
     user_state,
     user_zip,
   } = req.body;
+
   const newUser = {
     user_name,
     user_number,
